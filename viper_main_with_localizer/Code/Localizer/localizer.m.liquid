@@ -1,0 +1,14 @@
+{% include 'header' %}
+
+#import "{{ prefix }}{{ module_info.name }}Localizer.h"
+#import "{{ prefix }}{{ module_info.name }}LocalizerProtocol.h"
+
+@interface {{ prefix }}{{ module_info.name }}Localizer () <{{ prefix }}{{ module_info.name }}LocalizerProtocol>
+
+@end
+
+@implementation {{ prefix }}{{ module_info.name }}Localizer
+
+// Localized strings
+
+@end

@@ -1,0 +1,29 @@
+{% include 'header' %}
+
+#import "{{ prefix }}{{ module_info.name }}Presenter.h"
+#import "{{ prefix }}{{ module_info.name }}ViewInput.h"
+#import "{{ prefix }}{{ module_info.name }}InteractorInput.h"
+#import "{{ prefix }}{{ module_info.name }}RouterInput.h"
+#import "{{ prefix }}{{ module_info.name }}LocalizerProtocol.h"
+
+@interface {{ prefix }}{{ module_info.name }}Presenter ()
+
+@property (weak, nonatomic) id<RamblerViperModuleOutput> moduleOutput;
+
+@end
+
+@implementation {{ prefix }}{{ module_info.name }}Presenter
+
+#pragma mark - <{{ prefix }}{{ module_info.name }}ModuleInput> methods
+- (void)configureModule {
+	// Main configuration
+}
+
+#pragma mark - <{{ prefix }}{{ module_info.name }}ViewOutput> methods
+- (void)didTriggerViewReadyEvent {
+	[self.view setupInitialState];
+}
+
+#pragma mark - <{{ prefix }}{{ module_info.name }}InteractorOutput> methods
+
+@end
