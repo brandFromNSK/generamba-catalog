@@ -3,7 +3,7 @@
 set -x
 
 BASE_PATH=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-STRINGS_PATH=$BASE_PATH/Localizations/{{ prefix }}{{ module_info.name }}Localizable.strings
+STRINGS_PATH=$BASE_PATH/Localizations/ru.lproj/{{ prefix }}{{ module_info.name }}Localizable.strings
 OUTPUT_PATH=$BASE_PATH/{{ prefix }}{{ module_info.name }}Localizer.m
 
 parentdir="$(dirname "$BASE_PATH")"
