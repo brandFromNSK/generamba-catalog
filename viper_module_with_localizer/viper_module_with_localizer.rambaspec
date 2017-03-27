@@ -43,6 +43,7 @@ code_files:
 - {name: Localizer/Localizer.m, path: Code/Localizer/localizer.m.liquid}
 
 - {name: Localizer/Localizations/Localizable.strings, path: Code/Localizer/Localizations/localizable.strings.liquid}
+- {name: Localizer/generate_localizer, path: Code/Localizer/generate_localizer.liquid}
 
 # The declarations for test files
 test_files:
