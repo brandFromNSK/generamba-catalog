@@ -19,7 +19,7 @@
                               [definition injectProperty:@selector(moduleInput)
                                                     with:[self presenter{{ module_info.name }}]];
                               [definition injectProperty:@selector(localizer)
-                                                    with:[[{{ prefix }}{{ module_info.name }}Localizer alloc] init]];
+                                                    with:[self localizer{{ module_info.name }}]];
                           }];
 }
 
@@ -56,7 +56,7 @@
 - ({{ prefix }}{{ module_info.name }}Localizer *)localizer{{ module_info.name }} {
     return [TyphoonDefinition withClass:[{{ prefix }}{{ module_info.name }}Localizer class]
                           configuration:^(TyphoonDefinition *definition) {
-                              [definition useInitializer:@selector(init)];
+				
                           }];
 }
 
