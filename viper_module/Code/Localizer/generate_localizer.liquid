@@ -1,0 +1,22 @@
+# Automaticaly generate localization sources
+
+set -x
+
+BASE_PATH=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+STRINGS_PATH=$BASE_PATH/Localizations/ru.lproj/{{ prefix }}{{ module_info.name }}Localizable.strings
+OUTPUT_PATH=$BASE_PATH/{{ prefix }}{{ module_info.name }}Localizer.m
+
+parentdir="$(dirname "$BASE_PATH")"
+
+until [ -f $parentdir/LaurineGenerator.swift ] ; do
+echo "NOT FOUND!"
+parentdir="$(dirname "$parentdir")"
+done
+
+echo "FOUND!"
+LAURINE_PATH=$parentdir/LaurineGenerator.swift
+
+# Add permission to generator for script execution
+chmod 755 $LAURINE_PATH
+ 
+swift "$LAURINE_PATH" -i "$STRINGS_PATH" -o "$OUTPUT_PATH" -b "{{ prefix }}{{ module_info.name }}Localizer" -t "{{ prefix }}{{ module_info.name }}Localizable" -s "SFLocalizable" -l objc

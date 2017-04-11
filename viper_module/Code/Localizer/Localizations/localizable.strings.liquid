@@ -1,0 +1,20 @@
+{% include 'header' %}
+
+
+/* 
+
+ BASE_PATH=$(pwd)
+ 
+ LAURINE_PATH="$BASE_PATH/LaurineGenerator.swift"
+ MODULT_PATH="Core/UserStories/{{ module_info.name }}"
+ SOURCE_PATH="$BASE_PATH/$MODULT_PATH/Localizer/Localizations/ru.lproj/{{ prefix }}{{ module_info.name }}Localizable.strings"
+ OUTPUT_PATH="$BASE_PATH/$MODULT_PATH/Localizer/{{ prefix }}{{ module_info.name }}Localizer.m"
+ 
+ # Add permission to generator for script execution
+ chmod 755 "$LAURINE_PATH"
+ 
+ "$LAURINE_PATH" -i "$SOURCE_PATH" -o "$OUTPUT_PATH" -b "{{ prefix }}{{ module_info.name }}Localizer" -t "{{ prefix }}{{ module_info.name }}Localizable" -s "SFLocalizable" -l objc
+
+*/
+
+// "loc_example" = "Пример";

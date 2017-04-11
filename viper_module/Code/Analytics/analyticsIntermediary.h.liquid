@@ -1,0 +1,7 @@
+{% include 'header' %}
+
+#import "{{ prefix }}{{ module_info.name }}AnalyticsProtocol.h"
+
+@interface {{ prefix }}{{ module_info.name }}AnalyticsIntermediary : NSObject <{{ prefix }}{{ module_info.name }}AnalyticsProtocol>
+
+@end
