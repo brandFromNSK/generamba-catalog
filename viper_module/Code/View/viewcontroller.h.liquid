@@ -4,11 +4,14 @@
 #import "{{ prefix }}{{ module_info.name }}ViewInput.h"
 
 @protocol {{ prefix }}{{ module_info.name }}ViewOutput;
+{% if custom_parameters.localizer == 'YES' %}
 @class {{ prefix }}{{ module_info.name }}Localizer;
-
+{% endif %}
 @interface {{ prefix }}{{ module_info.name }}ViewController : UIViewController <{{ prefix }}{{ module_info.name }}ViewInput>
 
 @property (nonatomic, strong) id<{{ prefix }}{{ module_info.name }}ViewOutput> output;
+{% if custom_parameters.localizer == 'YES' %}
 @property (nonatomic, strong) {{ prefix }}{{ module_info.name }}Localizer *localizer;
+{% endif %}
 
 @end

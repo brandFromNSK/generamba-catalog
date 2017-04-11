@@ -7,15 +7,22 @@
 @protocol {{ prefix }}{{ module_info.name }}ViewInput;
 @protocol {{ prefix }}{{ module_info.name }}InteractorInput;
 @protocol {{ prefix }}{{ module_info.name }}RouterInput;
+{% if custom_parameters.analytics == 'YES' %}
 @protocol {{ prefix }}{{ module_info.name }}AnalyticsProtocol;
+{% endif %}
+{% if custom_parameters.localizer == 'YES' %}
 @class {{ prefix }}{{ module_info.name }}Localizer;
+{% endif %}
 
 @interface {{ prefix }}{{ module_info.name }}Presenter : NSObject <{{ prefix }}{{ module_info.name }}ModuleInput, {{ prefix }}{{ module_info.name }}ViewOutput, {{ prefix }}{{ module_info.name }}InteractorOutput>
 
 @property (nonatomic, weak) id<{{ prefix }}{{ module_info.name }}ViewInput> view;
 @property (nonatomic, strong) id<{{ prefix }}{{ module_info.name }}InteractorInput> interactor;
 @property (nonatomic, strong) id<{{ prefix }}{{ module_info.name }}RouterInput> router;
+{% if custom_parameters.analytics == 'YES' %}
 @property (nonatomic, strong) id<{{ prefix }}{{ module_info.name }}AnalyticsProtocol> analyticsIntermediary;
+{% endif %}
+{% if custom_parameters.localizer == 'YES' %}
 @property (nonatomic, strong) {{ prefix }}{{ module_info.name }}Localizer *localizer;
-
+{% endif %}
 @end

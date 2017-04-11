@@ -3,7 +3,9 @@
 #import "{{ prefix }}{{ module_info.name }}ViewController.h"
 #import "{{ prefix }}{{ module_info.name }}ViewOutput.h"
 #import "{{ prefix }}{{ module_info.name }}SegueIdentifiers.h"
+{% if custom_parameters.localizer == 'YES' %}
 #import "{{ prefix }}{{ module_info.name }}Localizer.h"
+{% endif %}
 #import <RamblerSegues/RamblerSegues.h>
 
 @interface {{ prefix }}{{ module_info.name }}ViewController () <RamblerEmbedSegueViewContainer>

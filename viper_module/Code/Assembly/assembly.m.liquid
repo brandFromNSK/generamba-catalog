@@ -5,9 +5,12 @@
 #import "{{ prefix }}{{ module_info.name }}Interactor.h"
 #import "{{ prefix }}{{ module_info.name }}Presenter.h"
 #import "{{ prefix }}{{ module_info.name }}Router.h"
+{% if custom_parameters.analytics == 'YES' %}
 #import "{{ prefix }}{{ module_info.name }}AnalyticsIntermediary.h"
+{% endif %}
+{% if custom_parameters.localizer == 'YES' %}
 #import "{{ prefix }}{{ module_info.name }}Localizer.h"
-
+{% endif %}
 #import <ViperMcFlurry/ViperMcFlurry.h>
 
 @implementation {{ prefix }}{{ module_info.name }}Assembly
@@ -41,11 +44,15 @@
                                                     with:[self interactor{{ module_info.name }}]];
                               [definition injectProperty:@selector(router)
                                                     with:[self router{{ module_info.name }}]];
+{% if custom_parameters.analytics == 'YES' %}
 			      [definition injectProperty:@selector(analyticsIntermediary)
                                                     with:[self analyticsIntermediary{{ module_info.name }}]];
+{% endif %}
+{% if custom_parameters.localizer == 'YES' %}
                               [definition injectProperty:@selector(localizer)
                                                     with:[self localizer{{ module_info.name }}]];
                           }];
+{% endif %}
 }
 
 - ({{ prefix }}{{ module_info.name }}Router *)router{{ module_info.name }} {
@@ -55,20 +62,22 @@
                                                     with:[self view{{ module_info.name }}]];
                           }];
 }
-
+{% if custom_parameters.analytics == 'YES' %}
 - ({{ prefix }}{{ module_info.name }}AnalyticsIntermediary *)analyticsIntermediary{{ module_info.name }} {
     return [TyphoonDefinition withClass:[{{ prefix }}{{ module_info.name }}AnalyticsIntermediary class]
                           configuration:^(TyphoonDefinition *definition) {
                               
                           }];
 }
-
+{% endif %}
+{% if custom_parameters.localizer == 'YES' %}
 - ({{ prefix }}{{ module_info.name }}Localizer *)localizer{{ module_info.name }} {
     return [TyphoonDefinition withClass:[{{ prefix }}{{ module_info.name }}Localizer class]
                           configuration:^(TyphoonDefinition *definition) {
 				
                           }];
 }
+{% endif %}
 
 
 @end

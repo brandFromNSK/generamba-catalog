@@ -4,9 +4,12 @@
 #import "{{ prefix }}{{ module_info.name }}ViewInput.h"
 #import "{{ prefix }}{{ module_info.name }}InteractorInput.h"
 #import "{{ prefix }}{{ module_info.name }}RouterInput.h"
+{% if custom_parameters.analytics == 'YES' %}
 #import "{{ prefix }}{{ module_info.name }}AnalyticsProtocol.h"
+{% endif %}
+{% if custom_parameters.localizer == 'YES' %}
 #import "{{ prefix }}{{ module_info.name }}Localizer.h"
-
+{% endif %}
 @interface {{ prefix }}{{ module_info.name }}Presenter ()
 
 @property (weak, nonatomic) id<RamblerViperModuleOutput> moduleOutput;
