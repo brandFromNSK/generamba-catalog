@@ -39,15 +39,19 @@ code_files:
 - {name: Router/SegueIdentifiers.h, path: Code/Router/segue_identifiers.h.liquid}
 
 # Analytics layer
+{% if custom_parameters.analytics == 'YES' %}
 - {name: Analytics/AnalyticsIntermediary.h, path: Code/Analytics/analyticsIntermediary.h.liquid}
 - {name: Analytics/AnalyticsIntermediary.m, path: Code/Analytics/analyticsIntermediary.m.liquid}
 - {name: Analytics/AnalyticsProtocol.h, path: Code/Analytics/analyticsProtocol.h.liquid}
+{% endif %}
 
 # Localize layer
+{% if custom_parameters.localizer == 'YES' %}
 - {name: Localizer/Localizer.h, path: Code/Localizer/localizer.h.liquid}
 - {name: Localizer/Localizer.m, path: Code/Localizer/localizer.m.liquid}
 - {name: Localizer/Localizations/Localizable.strings, path: Code/Localizer/Localizations/localizable.strings.liquid}
 - {name: Localizer/generate_localizer, path: Code/Localizer/generate_localizer.liquid}
+{% endif %}
 
 # The declarations for test files
 test_files:
