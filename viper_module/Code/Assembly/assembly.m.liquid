@@ -22,8 +22,10 @@
                                                     with:[self presenter{{ module_info.name }}]];
                               [definition injectProperty:@selector(moduleInput)
                                                     with:[self presenter{{ module_info.name }}]];
+{% if custom_parameters.localizer == 'YES' %}
                               [definition injectProperty:@selector(localizer)
                                                     with:[self localizer{{ module_info.name }}]];
+{% endif %}
                           }];
 }
 
@@ -51,8 +53,9 @@
 {% if custom_parameters.localizer == 'YES' %}
                               [definition injectProperty:@selector(localizer)
                                                     with:[self localizer{{ module_info.name }}]];
-                          }];
 {% endif %}
+                          }];
+
 }
 
 - ({{ prefix }}{{ module_info.name }}Router *)router{{ module_info.name }} {
