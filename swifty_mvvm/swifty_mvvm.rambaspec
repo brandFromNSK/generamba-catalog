@@ -18,4 +18,4 @@ code_files:
 - {name: View/View.swift, path: Code/View/view.swift.liquid}
 
 # Assembly
-- {name: Assembly/Assembly.swift, path: Code/Assembly/assembly.swift.liquid}
+- {name: Assembly/ModuleAssembly.swift, path: Code/Assembly/assembly.swift.liquid}
