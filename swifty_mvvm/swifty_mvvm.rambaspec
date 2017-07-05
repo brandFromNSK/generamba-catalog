@@ -1,0 +1,21 @@
+# Template information section
+name: "swifty_mvvm"
+summary: "Swift MVVM module"
+author: "Andrey Bronnikov"
+version: "0.1.0"
+license: "MIT"
+
+# The declarations for code files
+
+code_files:
+# ViewController
+- {name: ViewController/ViewController.swift, path: Code/ViewController/viewcontroller.swift.liquid}
+
+# ViewModel
+- {name: ViewModel/ViewModel.swift, path: Code/ViewModel/viewmodel.swift.liquid}
+
+# View
+- {name: View/View.swift, path: Code/View/view.swift.liquid}
+
+# Assembly
+- {name: Assembly/Assembly.swift, path: Code/Assembly/assembly.swift.liquid}

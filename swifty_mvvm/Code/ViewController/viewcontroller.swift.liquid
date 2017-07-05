@@ -1,0 +1,26 @@
+//
+//  {{ module_info.name }}{{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright © {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+class {{ module_info.name }}ViewController: BaseViewController {
+
+    var viewModel: {{ module_info.name }}ViewModel!
+    var decorationContainer: {{ module_info.name }}DecorationContainer!
+    @IBOutlet var rootView: {{ module_info.name }}View! {
+        didSet {
+            self.viewModel.view = rootView
+        }
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+	// Decoration
+        self.rootView.decorate(with: self.decorationContainer)
+    }
+
+}
