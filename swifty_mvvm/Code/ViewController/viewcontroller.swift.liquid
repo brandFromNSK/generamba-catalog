@@ -10,16 +10,14 @@ class {{ module_info.name }}ViewController: BaseViewController {
 
     var viewModel: {{ module_info.name }}ViewModel!
     var decorationContainer: {{ module_info.name }}DecorationContainer!
-    @IBOutlet var rootView: {{ module_info.name }}View! {
-        didSet {
-            self.viewModel.view = rootView
-        }
-    }
+    @IBOutlet var rootView: {{ module_info.name }}View!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-	// Decoration
+
+        self.viewModel.view = rootView      
+  
+        // Decoration
         self.rootView.decorate(with: self.decorationContainer)
     }
 
