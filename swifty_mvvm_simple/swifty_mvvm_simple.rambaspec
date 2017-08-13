@@ -2,18 +2,18 @@
 name: "swifty_mvvm_simple"
 summary: "Swift MVVM simple module"
 author: "Andrey Bronnikov"
-version: "0.1.1"
+version: "0.1.2"
 license: "MIT"
 
 # The declarations for code files
 
 code_files:
 # ViewController
-- {name: ViewController/ViewController.swift, path: Code/ViewController/viewcontroller.swift.liquid}
-- {name: ViewController/ViewController.storyboard, path: Code/ViewController/viewcontroller.storyboard.liquid}
+- {name: ViewController.swift, path: Code/ViewController/viewcontroller.swift.liquid}
+- {name: ViewController.storyboard, path: Code/ViewController/viewcontroller.storyboard.liquid}
 
 # ViewModel
-- {name: ViewModel/ViewModel.swift, path: Code/ViewModel/viewmodel.swift.liquid}
+- {name: ViewModel.swift, path: Code/ViewModel/viewmodel.swift.liquid}
 
 # Assembly
-- {name: Assembly/ModuleAssembly.swift, path: Code/Assembly/assembly.swift.liquid}
+- {name: ModuleAssembly.swift, path: Code/Assembly/assembly.swift.liquid}

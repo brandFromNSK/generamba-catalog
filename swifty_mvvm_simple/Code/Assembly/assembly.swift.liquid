@@ -13,8 +13,8 @@ class {{ module_info.name }}ModuleAssembly: Assembly {
 
 public func assemble(container: Container) {
 
-	// Factory example resolving
-	// c._NAME_Factory = r.resolveController(_NAME_ViewController.self)
+        // Factory example resolving
+        // c._NAME_Factory = r.resolveController(_NAME_ViewController.self)
 
         container.register(ModuleFactory<{{ module_info.name }}ViewController>.self) { r in
             return ModuleFactory<{{ module_info.name }}ViewController>(handler: {
