@@ -2,7 +2,7 @@
 name: "swifty_mvvm"
 summary: "Swift MVVM module"
 author: "Andrey Bronnikov"
-version: "0.1.0"
+version: "0.1.1"
 license: "MIT"
 
 # The declarations for code files
@@ -10,6 +10,7 @@ license: "MIT"
 code_files:
 # ViewController
 - {name: ViewController/ViewController.swift, path: Code/ViewController/viewcontroller.swift.liquid}
+- {name: ViewController/ViewController.storyboard, path: Code/ViewController/viewcontroller.storyboard.liquid}
 
 # ViewModel
 - {name: ViewModel/ViewModel.swift, path: Code/ViewModel/viewmodel.swift.liquid}

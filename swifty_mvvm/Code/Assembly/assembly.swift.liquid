@@ -19,18 +19,15 @@ public func assemble(container: Container) {
         
         container.registerWithBaseVC(serviceType: {{ module_info.name }}ViewController.self) { r in
             let c: {{ module_info.name }}ViewController = .fromStoryboard()
+
             c.decorationContainer = r.resolve({{ module_info.name }}DecorationContainer.self)
             c.viewModel = r.resolve({{ module_info.name }}ViewModel.self)
-	    
-	    // Additional
 
             return c
         }
         
         container.register({{ module_info.name }}ViewModel.self) { r in
             let c = {{ module_info.name }}ViewModel()
-
-	    // Additional
 
             return c
         }
