@@ -1,0 +1,41 @@
+{% include 'header' %}
+
+#import "{{ prefix }}{{ module_info.name }}ViewModel.h"
+
+@interface {{ prefix }}{{ module_info.name }}ViewModel ()
+
+@property (nonatomic, strong) id <ViewModelServices> services;
+
+@end
+
+@implementation {{ prefix }}{{ module_info.name }}ViewModel
+
+@synthesize inputs;
+@synthesize outputs;
+
+- (id <{{ prefix }}{{ module_info.name }}ViewModelInputs>)inputs {
+    return self;
+}
+
+- (id <{{ prefix }}{{ module_info.name }}ViewModelOutputs>)outputs {
+    return self;
+}
+
+#pragma mark - Initialization
+- (instancetype)initWithServices: (id <ViewModelServices>)services {
+    self = [super init];
+    if (self) {
+        _services = services;
+        [self initialize];
+    }
+    return self;
+}
+
+- (void)initialize {
+    
+}
+
+#pragma mark - Signals
+
+
+@end

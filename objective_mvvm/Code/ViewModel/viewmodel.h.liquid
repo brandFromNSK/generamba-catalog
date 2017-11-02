@@ -1,0 +1,35 @@
+{% include 'header' %}
+
+@protocol ViewModelServices;
+
+@protocol {{ prefix }}{{ module_info.name }}ViewModelDelegate <NSObject>
+
+@end
+
+
+@protocol {{ prefix }}{{ module_info.name }}ViewModelInputs <NSObject>
+
+@end
+
+
+@protocol {{ prefix }}{{ module_info.name }}ViewModelOutputs <NSObject>
+
+@end
+
+
+@protocol {{ prefix }}{{ module_info.name }}ViewModelType <NSObject>
+
+@required
+@property (nonatomic) id <{{ prefix }}{{ module_info.name }}ViewModelInputs> inputs;
+@property (nonatomic) id <{{ prefix }}{{ module_info.name }}ViewModelOutputs> outputs;
+
+@end
+
+@interface {{ prefix }}{{ module_info.name }}ViewModel : NSObject
+<{{ prefix }}{{ module_info.name }}ViewModelType,
+{{ prefix }}{{ module_info.name }}ViewModelInputs,
+{{ prefix }}{{ module_info.name }}ViewModelOutputs>
+
+- (instancetype)initWithServices: (id <ViewModelServices>)services;
+
+@end

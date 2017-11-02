@@ -1,0 +1,56 @@
+{% include 'header' %}
+
+#import "{{ prefix }}{{ module_info.name }}ViewController.h"
+#import "{{ prefix }}{{ module_info.name }}ViewModel.h"
+#import "SoulResourceManager.h"
+
+@interface {{ prefix }}{{ module_info.name }}ViewController ()
+
+@property (nonatomic, strong) id <{{ prefix }}{{ module_info.name }}ViewModelType> viewModel;
+
+@end
+
+@implementation {{ prefix }}{{ module_info.name }}ViewController
+
+
+#pragma mark - Soul base
++ (Class)soulViewModelClass {
+    return [{{ prefix }}{{ module_info.name }}ViewModel class];
+}
+
++ (instancetype)initWithViewModel: (id)viewModel {
+    return [[{{ prefix }}{{ module_info.name }}ViewController alloc] initWithViewModel: viewModel];
+}
+
+
+#pragma mark - Initialization
++ (void)load {
+    SoulResourceManager *resourceManager = [SoulResourceManager sharedInstance];
+    [resourceManager soulRegistratedViewControllerClass: [self class]];
+}
+
+- (instancetype)initWithViewModel: (id <{{ prefix }}{{ module_info.name }}ViewModelType>)viewModel {
+    self = [super init];
+    if (self) {
+        _viewModel = viewModel;
+        [self initialize];
+    }
+    return self;
+}
+
+- (void)initialize {
+    [self bindViewModel];
+}
+
+#pragma mark - Lifecycle
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+}
+
+#pragma mark - Bindings
+- (void)bindViewModel {
+    
+}
+
+@end
