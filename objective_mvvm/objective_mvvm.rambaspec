@@ -2,7 +2,7 @@
 name: "objective_mvvm"
 summary: "Objective MVVM module"
 author: "Andrey Bronnikov"
-version: "0.1.0"
+version: "0.1.1"
 license: "MIT"
 
 # The declarations for code files
@@ -11,7 +11,7 @@ code_files:
 # ViewController
 - {name: View/ViewController.h, path: Code/View/viewcontroller.h.liquid}
 - {name: View/ViewController.m, path: Code/View/viewcontroller.m.liquid}
-- {name: View/ViewController.storyboard, path: Code/View/viewcontroller.storyboard.liquid}
+- {name: View/ViewController.xib, path: Code/View/viewcontroller.xib.liquid}
 
 # ViewModel
 - {name: ViewModel/ViewModel.h, path: Code/ViewModel/viewmodel.h.liquid}
