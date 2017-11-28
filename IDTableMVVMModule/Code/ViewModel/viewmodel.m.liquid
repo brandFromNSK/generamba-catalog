@@ -1,0 +1,25 @@
+{% include 'header' %}
+
+
+#import "{{ prefix }}{{ module_info.name }}ViewModel.h"
+
+
+@implementation {{ prefix }}{{ module_info.name }}ViewModel
+
+- (instancetype)init {
+
+    self = [super init];
+    [self bindCellViewModels];
+    return self;
+}
+
+- (void)viewLoaded {
+
+}
+
+#pragma mark - Bindings
+- (void)bindCellViewModels {
+    
+}
+
+@end

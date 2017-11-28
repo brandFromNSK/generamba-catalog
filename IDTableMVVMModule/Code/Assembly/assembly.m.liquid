@@ -1,0 +1,50 @@
+{% include 'header' %}
+
+
+#import "{{ prefix }}{{ module_info.name }}Assembly.h"
+
+#import "{{ prefix }}{{ module_info.name }}ViewController.h"
+#import "{{ prefix }}{{ module_info.name }}ViewModel.h"
+#import "{{ prefix }}{{ module_info.name }}Contractor.h"
+
+
+@implementation {{ prefix }}{{ module_info.name }}Assembly
+
+- ({{ prefix }}{{ module_info.name }}ViewController *)view{{ module_info.name }} {
+
+    id configurationBlock = ^(TyphoonDefinition *definition) {
+
+        [definition injectProperty:@selector(viewModel)
+                              with:[self viewModel{{ module_info.name }}]];
+        [definition injectProperty:@selector(contractor)
+                              with:[self contractor{{ module_info.name }}]];
+
+    };
+
+    return [TyphoonDefinition withClass:[{{ prefix }}{{ module_info.name }}ViewController class]
+                          configuration:configurationBlock];
+}
+
+- ({{ prefix }}{{ module_info.name }}ViewModel *)viewModel{{ module_info.name }} {
+
+    id configurationBlock = ^(TyphoonDefinition *definition) {
+
+    };
+
+    return [TyphoonDefinition withClass:[{{ prefix }}{{ module_info.name }}ViewModel class]
+                          configuration:configurationBlock];
+}
+
+- ({{ prefix }}{{ module_info.name }}Contractor *)contractor{{ module_info.name }} {
+
+    id configurationBlock = ^(TyphoonDefinition *definition) {
+
+        [definition injectProperty:@selector(viewModel)
+                              with:[self viewModel{{ module_info.name }}]];
+    };
+
+    return [TyphoonDefinition withClass:[{{ prefix }}{{ module_info.name }}Contractor class]
+                          configuration:configurationBlock];
+}
+
+@end

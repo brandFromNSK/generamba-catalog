@@ -1,0 +1,50 @@
+{% include 'header' %}
+
+
+#import "{{ prefix }}{{ module_info.name }}Contractor.h"
+#import "{{ prefix }}{{ module_info.name }}ViewModel.h"
+#import "IDCellViewModelProtocol.h"
+#import "IDTableViewCell.h"
+
+
+@implementation {{ prefix }}{{ module_info.name }}Contractor
+
+#pragma mark - Bindings
+- (void)bindCellViewModels {
+
+    @weakify(self);
+    [RACObserve(self, self.viewModel.cellViewModels) subscribeNext:^(NSArray<id<IDCellViewModelProtocol>> *newCellViewModels) {
+        @strongify(self);
+        
+        [self.tableView reloadData];
+        [self registerReusableCellWithCellViewModels:newCellViewModels];
+    }];
+}
+
+#pragma mark - TableViewDelegate methods
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    NSUInteger row = (NSUInteger)indexPath.row;
+    
+    id<IDCellViewModelProtocol> cellViewModel = self.viewModel.cellViewModels[row];
+    IDTableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath withIdentifier:cellViewModel.cellIdentifier];
+
+    [cell setViewModel:cellViewModel];
+    
+    return cell;
+}
+
+
+#pragma mark - TableViewDataSource methods
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return self.viewModel.cellViewModels.count;
+}
+
+@end

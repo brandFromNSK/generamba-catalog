@@ -1,0 +1,44 @@
+{% include 'header' %}
+
+
+#import "{{ prefix }}{{ module_info.name }}TableViewCell.h"
+#import "{{ prefix }}{{ module_info.name }}CellViewModel.h"
+
+
+@interface {{ prefix }}{{ module_info.name }}TableViewCell ()
+
+@property (nonatomic, strong) {{ prefix }}{{ module_info.name }}CellViewModel *viewModel;
+
+@end
+
+@implementation {{ prefix }}{{ module_info.name }}TableViewCell
+
+- (void)setViewModel:(id<IDCellViewModelProtocol>)viewModel {
+
+    NSAssert([viewModel isKindOfClass:[{{ prefix }}{{ module_info.name }}CellViewModel class]], @"viewModel should be kind of class '{{ prefix }}{{ module_info.name }}CellViewModel'");
+
+    {{ prefix }}{{ module_info.name }}CellViewModel *unboxedViewModel = nil;
+    if( [viewModel isKindOfClass:[{{ prefix }}{{ module_info.name }}CellViewModel class]] ) {
+        unboxedViewModel = ({{ prefix }}{{ module_info.name }}CellViewModel *)viewModel;
+    }
+
+    _viewModel = unboxedViewModel;
+
+    [self configureView];
+    [self bindViewModelValues];
+}
+
+- (void)configureView {
+
+}
+
+
+#pragma mark - Bindings
+- (void)bindViewModelValues {
+    
+    [super bindViewModelValues];
+    
+    //bindigs here
+}
+
+@end

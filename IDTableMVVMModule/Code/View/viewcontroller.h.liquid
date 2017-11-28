@@ -1,0 +1,15 @@
+{% include 'header' %}
+
+
+@class {{ prefix }}{{ module_info.name }}ViewModel;
+@class {{ prefix }}{{ module_info.name }}Contractor;
+
+
+@interface {{ prefix }}{{ module_info.name }}ViewController : UIViewController
+
+@property (nonatomic, strong) {{ prefix }}{{ module_info.name }}ViewModel *viewModel;
+@property (nonatomic, strong) {{ prefix }}{{ module_info.name }}Contractor *contractor;
+
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
+
+@end

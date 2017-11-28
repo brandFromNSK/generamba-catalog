@@ -1,0 +1,21 @@
+# Template information section
+name: "IDStoryboardsViperController"
+summary: "VIPER module template for use in projects with storyboards"
+author: "Improve Digital"
+version: "1.0"
+license: "MIT"
+
+# The declarations for code files
+code_files:
+
+# View layer
+- {name: View/TableViewCell.h, path: Code/View/tableviewcell.h.liquid}
+- {name: View/TableViewCell.m, path: Code/View/tableviewcell.m.liquid}
+- {name: View/TableViewCell.xib, path: Code/View/tableviewcell.xib.liquid}
+
+# ViewModel layer
+- {name: ViewModel/CellViewModel.h, path: Code/ViewModel/cellviewmodel.h.liquid}
+- {name: ViewModel/CellViewModel.m, path: Code/ViewModel/cellviewmodel.m.liquid}
+
+# Template dependencies
+dependencies:

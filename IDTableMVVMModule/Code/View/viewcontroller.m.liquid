@@ -1,0 +1,23 @@
+{% include 'header' %}
+
+
+#import "{{ prefix }}{{ module_info.name }}ViewController.h"
+#import "{{ prefix }}{{ module_info.name }}ViewModel.h"
+#import "{{ prefix }}{{ module_info.name }}Contractor.h"
+
+
+@implementation {{ prefix }}{{ module_info.name }}ViewController
+
+- (void)viewDidLoad {
+    
+    [self.contractor setTableView:self.tableView];
+
+    [self.viewModel viewLoaded];
+}
+
+#pragma mark - Bindings
+
+#pragma mark - Actions
+
+
+@end

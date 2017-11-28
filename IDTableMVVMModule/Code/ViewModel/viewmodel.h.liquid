@@ -1,0 +1,13 @@
+{% include 'header' %}
+
+
+@protocol IDCellViewModelProtocol;
+
+
+@interface {{ prefix }}{{ module_info.name }}ViewModel : NSObject
+
+@property (nonatomic, strong) NSArray<id<IDCellViewModelProtocol>> *cellViewModels;
+
+- (void)viewLoaded;
+
+@end
