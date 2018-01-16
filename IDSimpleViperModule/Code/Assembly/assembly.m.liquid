@@ -1,11 +1,13 @@
 {% include 'header' %}
 
+
 #import "{{ prefix }}{{ module_info.name }}Assembly.h"
 
 #import "{{ prefix }}{{ module_info.name }}ViewController.h"
 #import "{{ prefix }}{{ module_info.name }}Interactor.h"
 #import "{{ prefix }}{{ module_info.name }}Presenter.h"
 #import "{{ prefix }}{{ module_info.name }}Router.h"
+
 
 @implementation {{ prefix }}{{ module_info.name }}Assembly
 
@@ -55,7 +57,7 @@
 
     id configurationBlock = ^(TyphoonDefinition *definition) {
 
-        [definition injectProperty:@selector(transitionHandler)
+        [definition injectProperty:@selector(currentViewController)
                               with:[self view{{ module_info.name }}]];
     };
 

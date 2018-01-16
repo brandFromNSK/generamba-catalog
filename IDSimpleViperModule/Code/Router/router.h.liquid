@@ -6,7 +6,7 @@
 
 @interface {{ prefix }}{{ module_info.name }}Router : NSObject <{{ prefix }}{{ module_info.name }}RouterInput>
 
-@property (nonatomic, weak) id<RamblerViperModuleTransitionHandlerProtocol> transitionHandler;
+@property (nonatomic, weak) {{ prefix }}{{ module_info.name }}ViewController *currentViewController;
 
 - (instancetype)init NS_DESIGNATED_INITIALIZER;
 
