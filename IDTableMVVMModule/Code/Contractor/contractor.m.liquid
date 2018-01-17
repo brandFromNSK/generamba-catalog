@@ -28,9 +28,7 @@
     NSUInteger row = (NSUInteger)indexPath.row;
     
     id<IDCellViewModelProtocol> cellViewModel = self.viewModel.cellViewModels[row];
-    IDTableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath withIdentifier:cellViewModel.cellIdentifier];
-
-    [cell setViewModel:cellViewModel];
+    IDTableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath withIdentifier:cellViewModel.cellIdentifier viewModel:cellViewModel];
     
     return cell;
 }
