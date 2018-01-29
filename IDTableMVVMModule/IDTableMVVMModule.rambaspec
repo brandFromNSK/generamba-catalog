@@ -2,7 +2,7 @@
 name: "IDStoryboardsViperController"
 summary: "VIPER module template for use in projects with storyboards"
 author: "Improve Digital"
-version: "1.0"
+version: "1.1"
 license: "MIT"
 
 # The declarations for code files
@@ -18,13 +18,18 @@ code_files:
 # ViewModel layer
 - {name: ViewModel/ViewModel.h, path: Code/ViewModel/viewmodel.h.liquid}
 - {name: ViewModel/ViewModel.m, path: Code/ViewModel/viewmodel.m.liquid}
+- {name: ViewModel/ElementsModuleFactory.h, path: Code/ViewModel/factory.h.liquid}
+- {name: ViewModel/ElementsModuleFactory.m, path: Code/ViewModel/factory.m.liquid}
 
 # Contractor layer
 - {name: Contractor/Contractor.h, path: Code/Contractor/contractor.h.liquid}
 - {name: Contractor/Contractor.m, path: Code/Contractor/contractor.m.liquid}
 
+# Router
+- {name: Router/Router.h, path: Code/Router/router.h.liquid}
+- {name: Router/Router.m, path: Code/Router/router.m.liquid}
+
 # Template dependencies
 dependencies:
 - Typhoon
-#- RamblerTyphoonUtils
 - ViperMcFlurry

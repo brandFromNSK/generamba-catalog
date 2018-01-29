@@ -1,0 +1,9 @@
+{% include 'header' %}
+
+@class IDViewController;
+
+@interface {{ prefix }}{{ module_info.name }}Router : NSObject
+
+@property (nonatomic, weak) IDViewController *currentViewController;
+
+@end

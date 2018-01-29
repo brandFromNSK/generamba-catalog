@@ -6,6 +6,8 @@
 #import "{{ prefix }}{{ module_info.name }}ViewController.h"
 #import "{{ prefix }}{{ module_info.name }}ViewModel.h"
 #import "{{ prefix }}{{ module_info.name }}Contractor.h"
+#import "{{ prefix }}{{ module_info.name }}Router.h"
+#import "{{ prefix }}{{ module_info.name }}ElementsModuleFactory.h"
 
 
 @implementation {{ prefix }}{{ module_info.name }}Assembly
@@ -28,7 +30,10 @@
 - ({{ prefix }}{{ module_info.name }}ViewModel *)viewModel{{ module_info.name }} {
 
     id configurationBlock = ^(TyphoonDefinition *definition) {
-
+        [definition injectProperty:@selector(router)
+                              with:[self router{{ module_info.name }}]];
+        [definition injectProperty:@selector(factory)
+                              with:[self factory{{ module_info.name }}]];
     };
 
     return [TyphoonDefinition withClass:[{{ prefix }}{{ module_info.name }}ViewModel class]
@@ -44,6 +49,30 @@
     };
 
     return [TyphoonDefinition withClass:[{{ prefix }}{{ module_info.name }}Contractor class]
+                          configuration:configurationBlock];
+}
+
+- ({{ prefix }}{{ module_info.name }}Router *)router{{ module_info.name }} {
+    
+    id configurationBlock = ^(TyphoonDefinition *definition) {
+        
+        [definition injectProperty:@selector(currentViewController)
+                              with:[self view{{ module_info.name }}]];
+    };
+    
+    return [TyphoonDefinition withClass:[{{ prefix }}{{ module_info.name }}Router class]
+                          configuration:configurationBlock];
+}
+
+- ({{ prefix }}{{ module_info.name }}ElementsModuleFactory *)factory{{ module_info.name }} {
+    
+    id configurationBlock = ^(TyphoonDefinition *definition) {
+        
+        [definition injectProperty:@selector(viewModel)
+                              with:[self viewModel{{ module_info.name }}]];
+    };
+    
+    return [TyphoonDefinition withClass:[{{ prefix }}{{ module_info.name }}ElementsModuleFactory class]
                           configuration:configurationBlock];
 }
 

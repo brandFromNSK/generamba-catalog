@@ -7,19 +7,12 @@
 
 @implementation {{ prefix }}{{ module_info.name }}ViewModel
 
-- (instancetype)init {
-
-    self = [super init];
-    [self bindCellViewModels];
-    return self;
-}
-
 - (void)viewLoaded {
-
+    [self updateCellViewModels];
 }
 
-#pragma mark - Bindings
-- (void)bindCellViewModels {
+#pragma mark - Cell view models configuration
+- (void) updateCellViewModels {
     
 }
 

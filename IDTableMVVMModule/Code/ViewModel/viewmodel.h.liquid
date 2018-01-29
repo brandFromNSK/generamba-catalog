@@ -1,5 +1,7 @@
 {% include 'header' %}
 
+#import "{{ prefix }}{{ module_info.name }}ElementsModuleFactory.h"
+#import "{{ prefix }}{{ module_info.name }} Router.h"
 
 @protocol IDCellViewModelProtocol;
 
@@ -7,6 +9,10 @@
 @interface {{ prefix }}{{ module_info.name }}ViewModel : NSObject
 
 @property (nonatomic, strong) NSArray<id<IDCellViewModelProtocol>> *cellViewModels;
+
+// Injected
+@property (nonatomic, strong) {{ prefix }}{{ module_info.name }}Router *router;
+@property (nonatomic, strong) {{ prefix }}{{ module_info.name }}ElementsModuleFactory *factory;
 
 - (void)viewLoaded;
 

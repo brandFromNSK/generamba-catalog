@@ -1,0 +1,26 @@
+{% include 'header' %}
+
+
+#import "{{ prefix }}{{ module_info.name }}ElementsModuleFactory.h"
+#import "{{ prefix }}{{ module_info.name }}ViewModel.h"
+
+#import "IDEntryFieldCellFieldModel.h"
+
+
+@implementation {{ prefix }}{{ module_info.name }}ElementsModuleFactory
+
+- (NSArray<id<IDCellViewModelProtocol>> *)elementViewModels {
+    
+    return @[];
+}
+
+//// Example
+//- (id <IDCellViewModelProtocol>)officeViewModel {
+//    IDEntryFieldCellFieldModel *model = [IDEntryFieldCellFieldModel fieldModelWithValue:@"Value"];
+//    model = @"Значение";
+//    IDEntryFieldCellViewModel *viewModel = [IDEntryFieldCellViewModel viewModelWithFieldModel:model];
+//    viewModel.delegate = self.viewModel;
+//    return viewModel;
+//}
+
+@end

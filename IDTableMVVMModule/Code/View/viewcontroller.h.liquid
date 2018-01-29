@@ -1,11 +1,12 @@
 {% include 'header' %}
 
+#import "IDViewController.h"
 
 @class {{ prefix }}{{ module_info.name }}ViewModel;
 @class {{ prefix }}{{ module_info.name }}Contractor;
 
 
-@interface {{ prefix }}{{ module_info.name }}ViewController : UIViewController
+@interface {{ prefix }}{{ module_info.name }}ViewController : IDViewController
 
 @property (nonatomic, strong) {{ prefix }}{{ module_info.name }}ViewModel *viewModel;
 @property (nonatomic, strong) {{ prefix }}{{ module_info.name }}Contractor *contractor;

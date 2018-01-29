@@ -1,0 +1,14 @@
+{% include 'header' %}
+
+
+@protocol IDCellViewModelProtocol;
+@class {{ prefix }}{{ module_info.name }}ViewModel;
+
+
+@interface {{ prefix }}{{ module_info.name }}ElementsModuleFactory : NSObject
+
+@property (weak, nonatomic) {{ prefix }}{{ module_info.name }}ViewModel *viewModel;
+
+- (NSArray<id<IDCellViewModelProtocol>> *)elementViewModels;
+
+@end
