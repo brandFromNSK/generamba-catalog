@@ -16,8 +16,13 @@
     [RACObserve(self, self.viewModel.cellViewModels) subscribeNext:^(NSArray<id<IDCellViewModelProtocol>> *newCellViewModels) {
         @strongify(self);
         
-        [self.tableView reloadData];
         [self registerReusableCellWithCellViewModels:newCellViewModels];
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+            [self.tableView beginUpdates];
+            [self.tableView endUpdates];
+        });
     }];
 }
 

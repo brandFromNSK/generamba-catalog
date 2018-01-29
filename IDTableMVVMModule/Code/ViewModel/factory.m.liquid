@@ -4,6 +4,7 @@
 #import "{{ prefix }}{{ module_info.name }}ElementsModuleFactory.h"
 #import "{{ prefix }}{{ module_info.name }}ViewModel.h"
 
+// Cell view models
 #import "IDEntryFieldCellFieldModel.h"
 
 
@@ -15,12 +16,11 @@
 }
 
 //// Example
-//- (id <IDCellViewModelProtocol>)officeViewModel {
-//    IDEntryFieldCellFieldModel *model = [IDEntryFieldCellFieldModel fieldModelWithValue:@"Value"];
-//    model = @"Значение";
-//    IDEntryFieldCellViewModel *viewModel = [IDEntryFieldCellViewModel viewModelWithFieldModel:model];
-//    viewModel.delegate = self.viewModel;
-//    return viewModel;
+//- (id <IDCellViewModelProtocol>)cellViewModel {
+//    IDEntryFieldCellFieldModel *cellFieldModel = [IDEntryFieldCellFieldModel fieldModelWithValue:@"Value"];
+//    IDEntryFieldCellViewModel *cellViewModel = [IDEntryFieldCellViewModel viewModelWithFieldModel: cellFieldModel];
+//    cellViewModel.delegate = self.viewModel;
+//    return cellViewModel;
 //}
 
 @end
