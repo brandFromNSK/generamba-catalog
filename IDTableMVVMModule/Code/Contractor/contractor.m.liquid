@@ -11,21 +11,10 @@
 
 #pragma mark - Bindings
 - (void)bindCellViewModels {
-
-    @weakify(self);
-    [RACObserve(self, self.viewModel.cellViewModels) subscribeNext:^(NSArray<id<IDCellViewModelProtocol>> *newCellViewModels) {
-        @strongify(self);
-        
-        [self registerReusableCellWithCellViewModels:newCellViewModels];
-
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.tableView reloadData];
-        });
-    }];
+    [self rac_liftSelector:@selector(updateTableViewWithCellViewModels:) withSignals:RACObserve(self.viewModel, cellViewModels), nil];
 }
 
 #pragma mark - TableViewDelegate methods
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     NSUInteger row = (NSUInteger)indexPath.row;
@@ -38,13 +27,11 @@
 
 
 #pragma mark - TableViewDataSource methods
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
     return self.viewModel.cellViewModels.count;
 }
 
